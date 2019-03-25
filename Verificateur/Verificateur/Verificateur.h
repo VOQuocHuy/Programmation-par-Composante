@@ -1,0 +1,8 @@
+
+#pragma once
+
+#define VERIFICATEUR_H
+#define VERIFICATEUR_VERSION_STR "1,0,0,0"
+#define VERIFICATEUR_VERSION 1,0,0,0
+
+
