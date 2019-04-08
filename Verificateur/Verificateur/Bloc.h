@@ -33,6 +33,7 @@ public:
 	unsigned char hash[HASH_SIZE];    // hash(nBloc,nTx,nUTXO,montant,destinataire) pour securisation de l'UTXO
 
 	std::string ToString();    // serialisation (necessaire au hash)
+	std::string ToStringSansHash();    // serialisation (necessaire au hash)
 };
 
 class TX { // transaction standard (many inputs, many outputs)
@@ -57,7 +58,7 @@ public:
 	TX tx1; //  transaction du bloc
 	TXM tx0; // transaction du mineur (coinbase)
 	std::string ToString();
-
+	std::string ToStringSansHash();    // serialisation (necessaire au hash)
 };
 
 #endif
