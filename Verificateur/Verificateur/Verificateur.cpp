@@ -13,11 +13,10 @@ bool verifierInitial(Bloc bloc_a_verifier, unsigned int difficulty)
 	bool verification = true;
 	
 	// verification du hash du bloc
-	string blocMine = bloc_a_verifier.hash;
-	miner(difficulty, bloc_a_verifier);
+	string hashRecalcule=hash(bloc_a_verifier);
 	for (int i = 0; i < HASH_SIZE; i++)
 	{
-		if (bloc_a_verifier.hash[i] != blocMine[i])
+		if (bloc_a_verifier.hash[i] != hashRecalcule[i])
 		{
 			cout << "Error Hash" << endl;
 			return false;
@@ -29,7 +28,8 @@ bool verifierInitial(Bloc bloc_a_verifier, unsigned int difficulty)
 		cout << "Error Index vide" << endl;
 		return false;
 	}
-
+	// verifier la difficulte du hash (nombre de zeros)
+	
 	//verification des TXIs
 
 	//verification des UTXO
@@ -41,7 +41,7 @@ bool verifierInitial(Bloc bloc_a_verifier, unsigned int difficulty)
 bool verifier(Bloc bloc_a_verifier,Bloc bloc_precedent,unsigned int difficulty)
 {
 	bool verification = true;
-	//verification du hash précédent
+	//verification du hash prÃ©cÃ©dent
 	if (bloc_a_verifier.num >0)
 	{
 		string strHash = bloc_precedent.hash;
@@ -56,23 +56,22 @@ bool verifier(Bloc bloc_a_verifier,Bloc bloc_precedent,unsigned int difficulty)
 		}
 	};
 	// verification du hash du bloc
-		string blocMine = bloc_a_verifier.hash;
-		miner(difficulty, bloc_a_verifier);
-		for (int i = 0; i < HASH_SIZE; i++) 
+	string hashRecalcule=hash(bloc_a_verifier);
+	for (int i = 0; i < HASH_SIZE; i++)
+	{
+		if (bloc_a_verifier.hash[i] != hashRecalcule[i])
 		{
-			if (bloc_a_verifier.hash[i] != blocMine[i]) 
-			{
-				cout << "Error Hash" << endl;
-				return false;
-			}
+			cout << "Error Hash" << endl;
+			return false;
 		}
+	}
 	// verification de l'index du bloc
 		if (bloc_a_verifier.num == NULL) 
 		{
 			cout << "Error Index vide" << endl;
 			return false;
 		}
-	//on verifie si l'index du blocc est plus grand que celui du précédent
+	//on verifie si l'index du blocc est plus grand que celui du prÃ©cÃ©dent
 		if (bloc_a_verifier.num > 0) {
 			if (bloc_a_verifier.num != bloc_precedent.num + 1)
 			{
@@ -80,6 +79,9 @@ bool verifier(Bloc bloc_a_verifier,Bloc bloc_precedent,unsigned int difficulty)
 				return false;
 			}
 		}
+	// verifier la difficulte du hash (nombre de zeros)
+	
+	
 	//verification des TXIs
 
 	//verification des UTXO
