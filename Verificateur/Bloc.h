@@ -58,6 +58,7 @@ public:
 	TXM tx0; // transaction du mineur (coinbase)
 
 	std::string ToString();
+	Bloc();
 };
 
 #endif

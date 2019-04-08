@@ -1,0 +1,3 @@
+﻿TestVerificateur.obj : error LNK2019: unresolved external symbol "public: __thiscall Bloc::Bloc(void)" (??0Bloc@@QAE@XZ) referenced in function _main
+TestVerificateur.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) bool __cdecl verifier(class Bloc,unsigned int)" (__imp_?verifier@@YA_NVBloc@@I@Z) referenced in function _main
+E:\Etudes\Paris MIAGE IF\PPC\projet\Programmation-par-Composante\Verificateur\Debug\TestVerificateur.exe : fatal error LNK1120: 2 unresolved externals

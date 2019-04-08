@@ -30,6 +30,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -142,10 +143,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Verificateur.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Bloc.h" />
+    <ClInclude Include="Bloc.h" />
+    <ClInclude Include="Hacheur.h" />
+    <ClInclude Include="Mineur.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Verificateur.h" />
   </ItemGroup>
