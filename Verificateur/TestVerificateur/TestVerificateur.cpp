@@ -12,9 +12,11 @@ using std::endl;
 
 int main()
 {
-	Bloc b;
+	Bloc b,b1;
 	bool verificateur;
-	verificateur = verifier(b, 3);
+	verificateur = verifierInitial(b, 3);
+	verificateur = verifier(b1, b,3);
+
 	cout << verificateur << endl;
 	return 0;
 }

@@ -40,19 +40,6 @@ bool verifierInitial(Bloc bloc_a_verifier, unsigned int difficulty)
 		cout << "Error nombre de difficulte du hash" << endl;
 		return false;
 	}
-	//verification des TXIs
-	for (unsigned int i = 0; i < bloc_a_verifier.tx1.TXIs.size(); i++)
-	{
-
-	}
-
-	//verification des UTXO
-	for (unsigned int i = 0; i < bloc_a_verifier.tx1.UTXOs.size(); i++)
-	{
-
-	}
-
-
 	return  verification;
 }
 
@@ -100,12 +87,23 @@ bool verifier(Bloc bloc_a_verifier, Bloc bloc_precedent,unsigned int difficulty)
 			cout << "Error nombre de difficulte du hash" << endl;
 			return false;
 		}
-	//verification des TXIs
-
-
-	//verification des UTXO
-
-
-
 	return  verification;
 }
+//verification de signature
+bool verifierSignature(string donnee_hache, string private_key,string public_key, string signature)
+{
+	Signature signateur;
+	bool verificateur = true;
+	if (signature == signateur.signerMessage(donnee_hache, public_key))
+	{
+		cout << "Error Signature" << endl;
+		return false;
+	}
+	if (signateur.validerSignature(donnee_hache, public_key, signature) == false)
+	{
+		cout << "Error Clé non conforme" << endl;
+		return false;
+	}
+	return verificateur;
+}
+

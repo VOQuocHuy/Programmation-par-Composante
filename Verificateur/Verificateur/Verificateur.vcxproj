@@ -151,8 +151,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bloc.h" />
+    <ClInclude Include="Clefs.h" />
     <ClInclude Include="Hacheur.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Signature.h" />
+    <ClInclude Include="uECC.h" />
     <ClInclude Include="Verificateur.h" />
   </ItemGroup>
   <ItemGroup>

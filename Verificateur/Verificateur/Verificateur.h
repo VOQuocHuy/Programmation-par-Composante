@@ -6,11 +6,12 @@
 #include "Bloc.h"
 #include <string>
 #include "Hacheur.h"
+#include "Signature.h"
 
 
 #define VERIFICATEUR_H
-#define VERIFICATEUR_VERSION_STR "1,0,0,0"
-#define VERIFICATEUR_VERSION 1,0,0,0
+#define VERIFICATEUR_VERSION_STR "1,2,0,0"
+#define VERIFICATEUR_VERSION 1,2,0,0
 
 #ifdef  VERIFICATEUR_EXPORTS
 #define VERIFICATEUR_EXPORT_INTERFACE __declspec(dllexport)
@@ -20,4 +21,4 @@
 
 VERIFICATEUR_EXPORT_INTERFACE bool verifier(Bloc bloc_a_verifier, Bloc bloc_precedent,unsigned int difficulty);
 VERIFICATEUR_EXPORT_INTERFACE bool verifierInitial(Bloc bloc_a_verifier, unsigned int difficulty);
-
+VERIFICATEUR_EXPORT_INTERFACE bool verifierSignature(string data, string public_key, string signature);
